@@ -19,3 +19,19 @@ input.onButtonPressed(Button.AB, function on_button_pressed_a3() {
     basic.showArrow(ArrowNames.North)
     console.log("AB")
 })
+// Al agitarse el Micro:Bit se muestra una cara confundida, 
+// "se espera medio segundo y se borra la pantalla. 
+// Seguido de esto, imprime la palabra " Shake
+input.onGesture(Gesture.Shake, function on_gesture_shake() {
+    basic.showIcon(IconNames.Confused)
+    basic.pause(500)
+    basic.clearScreen()
+    console.log("Shake")
+})
+// Siempre se está imprimiendo el valor de la temperatura en F
+forever(function on_forever() {
+    let c = input.temperature()
+    let f = c * 9 / 5 + 32
+    console.log("Grados Farenheit")
+    console.log(f)
+})

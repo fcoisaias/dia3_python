@@ -26,4 +26,18 @@ input.on_button_pressed(Button.AB, on_button_pressed_a3)
 #Al agitarse el Micro:Bit se muestra una cara confundida, 
 #"se espera medio segundo y se borra la pantalla. 
 #Seguido de esto, imprime la palabra " Shake
+def on_gesture_shake():
+    basic.show_icon(IconNames.CONFUSED)
+    basic.pause(500)
+    basic.clear_screen()
+    print("Shake")
+input.on_gesture(Gesture.Shake, on_gesture_shake)
 
+#Siempre se está imprimiendo el valor de la temperatura en F
+def on_forever():
+    c=input.temperature()
+    f=(c*9/5) + 32
+    print("Grados Farenheit")
+    print(f)
+
+forever(on_forever)
