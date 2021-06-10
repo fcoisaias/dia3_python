@@ -39,5 +39,9 @@ def on_forever():
     f=(c*9/5) + 32
     print("Grados Farenheit")
     print(f)
+    if f>90:
+        pins.digital_write_pin(DigitalPin.P0, 1)
+    else:
+        pins.digital_write_pin(DigitalPin.P0, 0)
 
 forever(on_forever)

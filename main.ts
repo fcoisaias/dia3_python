@@ -34,4 +34,10 @@ forever(function on_forever() {
     let f = c * 9 / 5 + 32
     console.log("Grados Farenheit")
     console.log(f)
+    if (f > 90) {
+        pins.digitalWritePin(DigitalPin.P0, 1)
+    } else {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+    }
+    
 })
